@@ -1,14 +1,23 @@
+from unittest.mock import patch, MagicMock
+
 from nio.block.terminals import DEFAULT_TERMINAL
 from nio.signal.base import Signal
 from nio.testing.block_test_case import NIOBlockTestCase
-from ..RainbowHAT_block import Rainbowhat
 
+import sys
 
-class TestRainbowhat(NIOBlockTestCase):
+class TestAlphaDisplay(NIOBlockTestCase):
 
-    def test_process_signals(self):
+    def setUp(self):
+        super().setUp()
+        sys.modules['rainbowhat'] = MagicMock()
+        from ..AlphaDisplay_block import AlphaDisplay
+        global AlphaDisplay
+
+    def test_string(self):
         """Signals pass through block unmodified."""
-        blk = Rainbowhat()
+        
+        blk = AlphaDisplay()
         self.configure_block(blk, {})
         blk.start()
         blk.process_signals([Signal({"hello": "nio"})])

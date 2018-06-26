@@ -1,8 +1,9 @@
 from nio.block.base import Block
 from nio.properties import VersionProperty
 
+import rainbowhat
 
-class Rainbowhat(Block):
+class AlphaDisplay(Block):
 
     version = VersionProperty('0.1.0')
 
