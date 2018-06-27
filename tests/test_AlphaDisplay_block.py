@@ -6,6 +6,7 @@ from nio.testing.block_test_case import NIOBlockTestCase
 
 import sys
 
+
 class TestAlphaDisplay(NIOBlockTestCase):
 
     def setUp(self):
@@ -15,9 +16,9 @@ class TestAlphaDisplay(NIOBlockTestCase):
         global AlphaDisplay
 
     def test_string(self):
-        with patch(AlphaDisplay.__module__ +'.rh.display') as mock_display:
+        with patch(AlphaDisplay.__module__ + '.rh.display') as mock_display:
             blk = AlphaDisplay()
-            self.configure_block(blk, {'words':'HIII'})
+            self.configure_block(blk, {'words': 'HIII'})
             blk.start()
             blk.process_signals([Signal({})])
             blk.stop()
@@ -28,9 +29,9 @@ class TestAlphaDisplay(NIOBlockTestCase):
                 {})
 
     def test_floats(self):
-        with patch(AlphaDisplay.__module__ +'.rh.display') as mock_display:
+        with patch(AlphaDisplay.__module__ + '.rh.display') as mock_display:
             blk = AlphaDisplay()
-            self.configure_block(blk, {'floats':'8008'})
+            self.configure_block(blk, {'floats': '8008'})
             blk.start()
             blk.process_signals([Signal({})])
             blk.stop()
