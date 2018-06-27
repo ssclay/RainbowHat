@@ -1,3 +1,4 @@
 [
+  "tests/test_AlphaDisplay_block.py::TestAlphaDisplay::test_floats",
   "tests/test_AlphaDisplay_block.py::TestAlphaDisplay::test_string"
 ]
