@@ -1,4 +1,4 @@
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch, MagicMock, ANY
 
 from nio.block.terminals import DEFAULT_TERMINAL
 from nio.signal.base import Signal
@@ -25,5 +25,5 @@ class TestTemperatureSensor(NIOBlockTestCase):
             mock_weather.pressure.assert_called()
             mock_weather.temperature.assert_called()
             self.assertDictEqual(
-                self.last_notified[DEFAULT_TERMINAL][0].to_dict(),
-                {'incoming': 'pewpew'})
+                self.last_notified[DEFAULT_TERMINAL][0],
+                {'temp':ANY, 'pressure':ANY})
