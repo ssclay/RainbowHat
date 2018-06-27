@@ -6,6 +6,7 @@ from nio.testing.block_test_case import NIOBlockTestCase
 
 import sys
 
+
 class TestLedStrip(NIOBlockTestCase):
 
     def setUp(self):
@@ -24,7 +25,7 @@ class TestLedStrip(NIOBlockTestCase):
     color7 = (8, 8, 8)
 
     def test_led(self):
-        with patch(LedStrip.__module__ +'.rh.rainbow') as mock_led:
+        with patch(LedStrip.__module__ + '.rh.rainbow') as mock_led:
             blk = LedStrip()
             self.configure_block(blk, ({'pixelrgb0': self.color0,
                                         'pixelrgb1': self.color1,
