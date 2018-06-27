@@ -1,6 +1,7 @@
 from nio.block.base import Block
 from nio.properties import VersionProperty, Property
 
+from time import sleep
 import rainbowhat as rh
 
 class LedStrip(Block):
@@ -18,10 +19,16 @@ class LedStrip(Block):
     def process_signals(self, signals):
 
         for signal in signals:
-            rh.rainbow.set_pixel(0, 
-                        self.pixelrgb0(signal)[0], 
-                        self.pixelrgb0(signal)[1], 
-                        self.pixelrgb0(signal)[2])
-            rh.rainbow.show()
+            for r in range(0, 8):
+                red = getattr(self, 'pixelrgb{}'.format(r))(signal)[0]
+                green = getattr(self, 'pixelrgb{}'.format(r))(signal)[1]
+                blue  = getattr(self, 'pixelrgb{}'.format(r))(signal)[2]
+                print(r)
+                print(red, green, blue)
+                rh.rainbow.set_pixel(r,
+                        red, 
+                        green,
+                        blue)
+                rh.rainbow.show()
 
         self.notify_signals(signals)
