@@ -6,8 +6,8 @@ import rainbowhat as rh
 class AlphaDisplay(Block):
 
     version = VersionProperty('0.1.0')
-    words = Property(title="Words to Screen", default='AHOY')
-    floats = Property(title="Floats to Screen", default='1337')
+    words = Property(title="Words to Screen", default=None, allow_none=True)
+    floats = Property(title="Floats to Screen", default=None, allow_none=True)
 
     def process_signals(self, signals):
         
