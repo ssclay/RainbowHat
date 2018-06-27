@@ -16,13 +16,15 @@ class TestAlphaDisplay(NIOBlockTestCase):
 
     def test_string(self):
         """Signals pass through block unmodified."""
-        
-        blk = AlphaDisplay()
-        self.configure_block(blk, {})
-        blk.start()
-        blk.process_signals([Signal({"hello": "nio"})])
-        blk.stop()
-        self.assert_num_signals_notified(1)
-        self.assertDictEqual(
-            self.last_notified[DEFAULT_TERMINAL][0].to_dict(),
-            {"hello": "nio"})
+        with patch(AlphaDisplay.__module__ +'.rh.display') as mock_display:
+            blk = AlphaDisplay()
+            self.configure_block(blk, {'words':'HIII'})
+            blk.start()
+            blk.process_signals([Signal({})])
+            blk.stop()
+            self.assert_num_signals_notified(1)
+            mock_display.print_str.assert_called_with('HIII')
+            mock_display.show.assert_called()
+            self.assertDictEqual(
+                self.last_notified[DEFAULT_TERMINAL][0].to_dict(),
+                {})
