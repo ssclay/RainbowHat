@@ -15,13 +15,17 @@ class TestBuzzer(NIOBlockTestCase):
         from ..Buzzer_block import Buzzer
         global Buzzer
 
-    def test_buzzer(self):
+    def test_process_signals(self):
         with patch(Buzzer.__module__ + '.rh.buzzer') as mock_buzz:
             blk = Buzzer()
-            self.configure_block(blk, {})
+            self.configure_block(blk, {'incoming': 'pewpew',
+                                       'frequency': 261,
+                                       'duration': 1})
             blk.start()
-            blk.process_signals([Signal({'incoming': 'pewpew'})])
+            blk.process_signals([Signal({})])
             blk.stop()
+            mock_buzz.note.assert_called()
+            mock_buzz.note.assert_called_with(261, 1)
             self.assertDictEqual(
                 self.last_notified[DEFAULT_TERMINAL][0].to_dict(),
-                {'incoming': 'pewpew'})
+                {})
