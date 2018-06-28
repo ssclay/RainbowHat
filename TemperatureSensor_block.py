@@ -6,6 +6,8 @@ import rainbowhat as rh
 
 class TemperatureSensor(Block):
 
+    version = VersionProperty('0.1.0')
+
     def process_signals(self, signals):
 
         for signal in signals:
