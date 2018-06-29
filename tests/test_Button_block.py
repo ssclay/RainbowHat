@@ -15,7 +15,7 @@ class TestButton(NIOBlockTestCase):
         from ..Button_block import Button
         global Button
 
-    def test_process_signals(self):
+    def test_buttonmash(self):
         with patch(Button.__module__ + '.rh.touch') as mock_touch:
             with patch(Button.__module__ + '.rh.light') as mock_light:
                 blk = Button()
