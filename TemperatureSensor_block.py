@@ -1,5 +1,6 @@
 from nio.block.base import Block
 from nio.properties import VersionProperty, Property
+from nio.signal.base import Signal
 
 import rainbowhat as rh
 
@@ -13,5 +14,5 @@ class TemperatureSensor(Block):
         for signal in signals:
             temp = rh.weather.temperature()
             pressure = rh.weather.pressure()
-        self.notify_signals([{'temp': temp, 'pressure': pressure}])
+        self.notify_signals([Signal({'temp': temp, 'pressure': pressure})])
 
