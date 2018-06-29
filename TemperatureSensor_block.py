@@ -14,5 +14,5 @@ class TemperatureSensor(Block):
         for signal in signals:
             temp = rh.weather.temperature()
             pressure = rh.weather.pressure()
-        self.notify_signals([Signal({'temp': temp, 'pressure': pressure})])
+        self.notify_signals([Signal({'temp_c': temp, 'pressure_Pa': pressure})])
 
