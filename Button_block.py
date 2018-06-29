@@ -1,3 +1,6 @@
+
+
+
 from nio.block.base import Block
 from nio.properties import VersionProperty, FloatProperty
 
@@ -12,4 +15,5 @@ class Button(Block):
 
         for signal in signals:
             pass
+
         self.notify_signals(signals)

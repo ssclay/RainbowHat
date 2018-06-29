@@ -17,11 +17,12 @@ class TestButton(NIOBlockTestCase):
 
     def test_process_signals(self):
         with patch(Button.__module__ + '.rh.touch') as mock_touch:
-            blk = Button()
-            self.configure_block(blk, {'incoming': 'pewpew'})
-            blk.start()
-            blk.process_signals([Signal({})])
-            blk.stop()
-            self.assertDictEqual(
-                self.last_notified[DEFAULT_TERMINAL][0].to_dict(),
-                {})
+            with patch(Button.__module__ + '.rh.light') as mock_light:
+                blk = Button()
+                self.configure_block(blk, {'incoming': 'pewpew'})
+                blk.start()
+                blk.process_signals([Signal({})])
+                blk.stop()
+                self.assertDictEqual(
+                    self.last_notified[DEFAULT_TERMINAL][0].to_dict(),
+                    {})
