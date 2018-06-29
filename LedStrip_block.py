@@ -14,16 +14,14 @@ class LedStrip(Block):
     pixelrgb4 = Property(title='pixel 4 r g b', default='{{(0, 0, 0)}}')
     pixelrgb5 = Property(title='pixel 5 r g b', default='{{(0, 0, 0)}}')
     pixelrgb6 = Property(title='pixel 6 r g b', default='{{(0, 0, 0)}}')
-    pixelrgb7 = Property(title='pixel 7 r g b', default='{{(0, 0, 0)}}')
 
     def process_signals(self, signals):
 
         for signal in signals:
-            for pixel in range(0, 8):
+            for pixel in range(0, 7):
                 red = getattr(self, 'pixelrgb{}'.format(pixel))(signal)[0]
                 green = getattr(self, 'pixelrgb{}'.format(pixel))(signal)[1]
                 blue = getattr(self, 'pixelrgb{}'.format(pixel))(signal)[2]
                 rh.rainbow.set_pixel(pixel, red, green, blue)
                 rh.rainbow.show()
-
         self.notify_signals(signals)

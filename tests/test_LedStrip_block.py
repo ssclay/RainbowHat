@@ -22,7 +22,6 @@ class TestLedStrip(NIOBlockTestCase):
     color4 = (5, 5, 5)
     color5 = (6, 6, 6)
     color6 = (7, 7, 7)
-    color7 = (8, 8, 8)
 
     def test_led(self):
         with patch(LedStrip.__module__ + '.rh.rainbow') as mock_led:
@@ -33,12 +32,11 @@ class TestLedStrip(NIOBlockTestCase):
                                         'pixelrgb3': self.color3,
                                         'pixelrgb4': self.color4,
                                         'pixelrgb5': self.color5,
-                                        'pixelrgb6': self.color6,
-                                        'pixelrgb7': self.color7}))
+                                        'pixelrgb6': self.color6}))
             blk.start()
             blk.process_signals([Signal({})])
             blk.stop()
-            mock_led.set_pixel.assert_called_with(7, 8, 8, 8)
+            mock_led.set_pixel.assert_called_with(6, 7, 7, 7)
             mock_led.show.assercalled()
             self.assertDictEqual(
                 self.last_notified[DEFAULT_TERMINAL][0].to_dict(),
