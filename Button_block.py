@@ -23,12 +23,12 @@ class Button(Block):
         @rh.touch.B.press()
         def touch_b(channel):
             touch_b = True
-            rh.lights.rgb(255, 0, 0)
+            rh.lights.rgb(0, 255, 0)
 
         @rh.touch.B.release()
         def release_b(channel):
             touch_b = False
-            rh.lights.rgb(0, 255, 0)
+            rh.lights.rgb(0, 0, 0)
 
         @rh.touch.C.press()
         def touch_c(channel):
