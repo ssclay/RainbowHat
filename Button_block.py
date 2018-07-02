@@ -1,5 +1,6 @@
 from nio.block.base import Block
 from nio.properties import VersionProperty, FloatProperty
+from nio.signal.base import Signal
 
 import rainbowhat as rh
 
@@ -9,8 +10,6 @@ class Button(Block):
     version = VersionProperty('0.1.0')
 
     def process_signals(self, signals):
-
-        output_signal = []
 
         @rh.touch.A.press()
         def touch_a(channel):
@@ -45,6 +44,5 @@ class Button(Block):
         presses = {'button_a': touch_a,
                    'button_b': touch_b,
                    'button_c': touch_c}
-        output_signal.append(presses)
 
-        self.notify_signals(output_signal)
+        self.notify_signals(Signal(presses))
