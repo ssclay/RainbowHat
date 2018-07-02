@@ -17,7 +17,7 @@ class Button(Block):
 
         @rh.touch.A.release()
         def release_a(channel):
-            touch_a = True
+            touch_a = False
             rh.lights.rgb(0, 0, 0)
 
         @rh.touch.B.press()
@@ -27,7 +27,7 @@ class Button(Block):
 
         @rh.touch.B.release()
         def release_b(channel):
-            touch_b = True
+            touch_b = False
             rh.lights.rgb(0, 255, 0)
 
         @rh.touch.C.press()
@@ -37,6 +37,6 @@ class Button(Block):
 
         @rh.touch.D.release()
         def release_d(channel):
-            touch_d = True
+            touch_d = False
             rh.lights.rgb(0, 0, 0)
         self.notify_signals(signals)
