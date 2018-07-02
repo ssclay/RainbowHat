@@ -16,12 +16,6 @@ class TemperatureSensor(EnrichSignals, Block):
             temp = rh.weather.temperature()
             pressure = rh.weather.pressure()
             output = {'temp_C': temp, 'pressure_Pa': pressure}
-            # print('89898998989898989898989989898')
-            # print(output)
-            # print('56556556565556565656565656565656556')
-            # print(signal)
-            # output_signals.append(output)
-            # output_signals.append(signal)
             output_signals = self.get_output_signal(output, signal)
         self.notify_signals(output_signals)
 
