@@ -1,4 +1,8 @@
 [
   "tests/test_AlphaDisplay_block.py::TestAlphaDisplay::test_floats",
-  "tests/test_AlphaDisplay_block.py::TestAlphaDisplay::test_string"
+  "tests/test_AlphaDisplay_block.py::TestAlphaDisplay::test_string",
+  "tests/test_Button_block.py::TestButton::test_process_signals",
+  "tests/test_Buzzer_block.py::TestBuzzer::test_process_signals",
+  "tests/test_LedStrip_block.py::TestLedStrip::test_led",
+  "tests/test_TemperatureSensor_block.py::TestTemperatureSensor::test_temp"
 ]
