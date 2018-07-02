@@ -9,7 +9,7 @@ class AlphaDisplay(Block):
 
     version = VersionProperty('0.1.0')
     words = Property(title="Words to Screen", default=None, allow_none=True)
-
+    numbers = Property(title="Numbers to Screen", default=None, allow_none=True)
     def configure(self, context):
         super().configure(context)
         rh.display.clear()
@@ -18,14 +18,12 @@ class AlphaDisplay(Block):
     def process_signals(self, signals):
 
         for signal in signals:
-            r0 = 0
-            r = 4
-            while r <= len(self.words(signal)):
-                rh.display.print_str(str(self.words(signal)[r0:r]))
+            if self.numbers() != None:
+                rh.display.print_float(self.numbers(signal))
                 rh.display.show()
-                sleep(0.5)
-                r0 = r
-                r += 4
+            else:
+                rh.display.print_str(str(self.words(signal)))
+                rh.display.show()
         self.notify_signals(signals)
 
     def stop(self):
