@@ -35,8 +35,12 @@ class Button(Block):
             touch_c = True
             rh.lights.rgb(0, 0, 255)
 
-        @rh.touch.D.release()
-        def release_d(channel):
-            touch_d = False
+        @rh.touch.C.release()
+        def release_c(channel):
+            touch_c = False
             rh.lights.rgb(0, 0, 0)
-        self.notify_signals(signals)
+        
+        self.notify_signals([{'touch_a':touch_a, 
+                              'touch_b':touch_b,
+                              'touch_c':touch_c,
+                            }])

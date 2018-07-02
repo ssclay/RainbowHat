@@ -1,1 +1,3 @@
-{}
+{
+  "tests/test_Button_block.py::TestButton::test_process_signals": true
+}
