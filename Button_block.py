@@ -10,6 +10,8 @@ class Button(Block):
 
     def process_signals(self, signals):
 
+        output_signal = []
+
         @rh.touch.A.press()
         def touch_a(channel):
             touch_a = True
@@ -39,8 +41,10 @@ class Button(Block):
         def release_c(channel):
             touch_c = False
             rh.lights.rgb(0, 0, 0)
-        
-        self.notify_signals([{'touch_a':touch_a, 
-                              'touch_b':touch_b,
-                              'touch_c':touch_c,
-                            }])
+
+        presses = {'button_a': touch_a,
+                   'button_b': touch_b,
+                   'button_c': touch_c}
+        output_signal.append(presses)
+
+        self.notify_signals(output_signal)
