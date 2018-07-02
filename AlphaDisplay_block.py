@@ -1,3 +1,4 @@
+from time import sleep
 from nio.block.base import Block
 from nio.properties import VersionProperty, Property
 
@@ -17,8 +18,14 @@ class AlphaDisplay(Block):
     def process_signals(self, signals):
 
         for signal in signals:
-            rh.display.print_str(str(self.words(signal)))
-            rh.display.show()
+            r0 = 0
+            r = 4
+            while r <= len(self.words(signal)):
+                rh.display.print_str(str(self.words(signal)[r0:r]))
+                rh.display.show()
+                sleep(0.5)
+                r0 = r
+                r += 4
         self.notify_signals(signals)
 
     def stop(self):
