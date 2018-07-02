@@ -5,10 +5,11 @@ from nio.properties import VersionProperty, Property
 import rainbowhat as rh
 
 
-class AlphaDisplay(Block):
+class FloatDisplay(Block):
 
     version = VersionProperty('0.1.0')
-    words = Property(title="Words to Screen", default=None, allow_none=True)
+    numbers = Property(title="Numbers to Screen", default=None, allow_none=True)
+    
     def configure(self, context):
         super().configure(context)
         rh.display.clear()
@@ -17,7 +18,7 @@ class AlphaDisplay(Block):
     def process_signals(self, signals):
 
         for signal in signals:
-            rh.display.print_str(str(self.words(signal)))
+            rh.display.print_float(self.numbers(signal))
             rh.display.show()
         self.notify_signals(signals)
 
