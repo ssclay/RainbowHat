@@ -15,35 +15,44 @@ class Button(Block):
         button_b = False
         button_c = False
 
-        if rh.touch.A.press():
+        @rh.touch.A.press()
+        def touch_a(channel):
             button_a = True
             rh.lights.rgb(255, 0, 0)
+            return button_a
 
-        # @rh.touch.A.release()
-        # def release_a(channel):
-        #     button_a = False
-        #     rh.lights.rgb(0, 0, 0)
+        @rh.touch.A.release()
+        def release_a(channel):
+            button_a = False
+            rh.lights.rgb(0, 0, 0)
+            return button_a
 
-        if rh.touch.B.press():
+        @rh.touch.B.press()
+        def touch_b(channel):
             button_b = True
             rh.lights.rgb(0, 255, 0)
+            return button_b
 
-        # @rh.touch.B.release()
-        # def release_b(channel):
-        #     button_b = False
-        #     rh.lights.rgb(0, 0, 0)
+        @rh.touch.B.release()
+        def release_b(channel):
+            button_b = False
+            rh.lights.rgb(0, 0, 0)
+            return button_b
 
-        if rh.touch.C.press():
+        @rh.touch.C.press()
+        def touch_c(channel):
             button_c = True
             rh.lights.rgb(0, 0, 255)
+            return button_c
 
-        # @rh.touch.C.release()
-        # def release_c(channel):
-        #     button_c = False
-        #     rh.lights.rgb(0, 0, 0)
+        @rh.touch.C.release()
+        def release_c(channel):
+            button_c = False
+            rh.lights.rgb(0, 0, 0)
+            return button_c
 
-        presses = {'button_a': touch_a,
-                   'button_b': touch_b,
-                   'button_c': touch_c}
+        presses = {'button_a': button_a,
+                   'button_b': button_b,
+                   'button_c': button_c}
 
         self.notify_signals(Signal(presses))
