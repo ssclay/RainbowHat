@@ -15,33 +15,27 @@ class Button(Block):
         button_b = False
         button_c = False
 
-        @rh.touch.A.press()
-        def touch_a(channel):
+        if rh.touch.A.press():
             button_a = True
             rh.lights.rgb(255, 0, 0)
-            return button_a
 
         # @rh.touch.A.release()
         # def release_a(channel):
         #     button_a = False
         #     rh.lights.rgb(0, 0, 0)
 
-        @rh.touch.B.press()
-        def touch_b(channel):
+        if rh.touch.B.press():
             button_b = True
             rh.lights.rgb(0, 255, 0)
-            return button_b
 
         # @rh.touch.B.release()
         # def release_b(channel):
         #     button_b = False
         #     rh.lights.rgb(0, 0, 0)
 
-        @rh.touch.C.press()
-        def touch_c(channel):
+        if rh.touch.C.press():
             button_c = True
             rh.lights.rgb(0, 0, 255)
-            return button_c
 
         # @rh.touch.C.release()
         # def release_c(channel):
