@@ -1,64 +1,39 @@
-from nio.block.base import Block
+from nio import GeneratorBlock
+from nio.block import output
 from nio.properties import VersionProperty, FloatProperty
 from nio.signal.base import Signal
 
 import rainbowhat as rh
 
-
-class Button(Block):
+@output('press', label='Press')
+@output('release', label='Release')
+class Button(GeneratorBlock):
 
     version = VersionProperty('0.1.0')
 
-    def configure(self, context):
-        super().configure(context)
-        self.button_a = False
-        self.button_b = False
-        self.button_c = False
+    # def configure(self, context):
+    #     super().configure(context)
+    #     self._button[0] = False
+    #     self._button[1] = False
+    #     self._button[2] = False
 
-    @rh.touch.A.press()
-    def touch_a(self, channel):
-        self.button_a = True
-        rh.lights.rgb(255, 0, 0)
-        self.notify_signals(Signal({'button_a': True,
-                                   'button_b': False,
-                                   'button_c': False}))
+    def _press(button):
+        press_output = button
+        self.notify_signals(press_ouput,'press')
 
+    def _release(button):
+        release_output = button
+        self.notify_signals(release_output, 'release')
 
-    @rh.touch.A.release()
-    def release_a(self, channel):
-        self.button_a = False
-        rh.lights.rgb(0, 0, 0)
-
-    @rh.touch.B.press()
-    def touch_b(self, channel):
-        self.button_b = True
-        rh.lights.rgb(0, 255, 0)
-        self.notify_signals(Signal({'button_a': False,
-                                   'button_b': True,
-                                   'button_c': False}))
-
-    @rh.touch.B.release()
-    def release_b(self, channel):
-        self.button_b = False
-        rh.lights.rgb(0, 0, 0)
-
-    @rh.touch.C.press()
-    def touch_c(self, channel):
-        self.button_c = True
-        rh.lights.rgb(0, 0, 255)
-        self.notify_signals(Signal({'button_a': False,
-                                   'button_b': False,
-                                   'button_c': True}))
-
-    @rh.touch.C.release()
-    def release_c(self, channel):
-        self.button_c = False
-        rh.lights.rgb(0, 0, 0)
- 
+    
+    rh.touch.A.press(_press)
+    rh.touch.B.press(_press)
+    rh.touch.C.press(_press)
+    rh.touch.A.release(_release)
+    rh.touch.B.release(_release)
+    rh.touch.C.release(_release)
     
     def process_signals(self, signals):
-        presses = {'button_a': self.button_a,
-                   'button_b': self.button_b,
-                   'button_c': self.button_c}
+        pass
 
-        self.notify_signals(Signal(presses))
+        # self.notify_signals(Signal(presses))
