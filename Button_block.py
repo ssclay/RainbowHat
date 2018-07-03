@@ -9,47 +9,28 @@ class Button(Block):
 
     version = VersionProperty('0.1.0')
 
+    CHANNEL_MAP = {
+        0: 'A',
+        1: 'B',
+        2: 'C',
+    }
+
     def configure(self, context):
         super().configure(context)
-        self.button_a = False
-        self.button_b = False
-        self.button_c = False
+        rh.touch.A.press(self.foo)
+        rh.touch.B.press(self.foo)
+        rh.touch.C.press(self.foo)
+        rh.touch.A.release(self.bar)
+        rh.touch.B.release(self.bar)
+        rh.touch.C.release(self.bar)
 
-    @rh.touch.A.press()
-    def touch_a(self, channel):
-        self.button_a = True
-        rh.lights.rgb(255, 0, 0)
+    def foo(self, channel):
+        ch = self.CHANNEL_MAP[channel]
+        self.notify_signals(Signal({'channel': ch, 'value': True}))
+        rh.lights.rgb(255,255,255)
 
+    def bar(self, channel):
+        ch = self.CHANNEL_MAP[channel]
+        self.notify_signals(Signal({'channel': ch, 'value': False}))
+        rh.lights.rgb(0,0,0)
 
-    @rh.touch.A.release()
-    def release_a(self, channel):
-        self.button_a = False
-        rh.lights.rgb(0, 0, 0)
-
-    @rh.touch.B.press()
-    def touch_b(self, channel):
-        self.button_b = True
-        rh.lights.rgb(0, 255, 0)
-
-    @rh.touch.B.release()
-    def release_b(self, channel):
-        self.button_b = False
-        rh.lights.rgb(0, 0, 0)
-
-    @rh.touch.C.press()
-    def touch_c(self, channel):
-        self.button_c = True
-        rh.lights.rgb(0, 0, 255)
-
-    @rh.touch.C.release()
-    def release_c(self, channel):
-        self.button_c = False
-        rh.lights.rgb(0, 0, 0)
- 
-    
-    def process_signals(self, signals):
-        presses = {'button_a': self.button_a,
-                   'button_b': self.button_b,
-                   'button_c': self.button_c}
-
-        self.notify_signals(Signal(presses))
