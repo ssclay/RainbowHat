@@ -17,19 +17,19 @@ class Button(Block):
 
     def configure(self, context):
         super().configure(context)
-        rh.touch.A.press(self.foo)
-        rh.touch.B.press(self.foo)
-        rh.touch.C.press(self.foo)
-        rh.touch.A.release(self.bar)
-        rh.touch.B.release(self.bar)
-        rh.touch.C.release(self.bar)
+        rh.touch.A.press(self.pressed)
+        rh.touch.B.press(self.pressed)
+        rh.touch.C.press(self.pressed)
+        rh.touch.A.release(self.released)
+        rh.touch.B.release(self.released)
+        rh.touch.C.release(self.released)
 
-    def foo(self, channel):
+    def pressed(self, channel):
         ch = self.CHANNEL_MAP[channel]
         self.notify_signals(Signal({'channel': ch, 'value': True}))
-        rh.lights.rgb(255,255,255)
+        rh.lights.green.on()
 
-    def bar(self, channel):
+    def released(self, channel):
         ch = self.CHANNEL_MAP[channel]
         self.notify_signals(Signal({'channel': ch, 'value': False}))
         rh.lights.rgb(0,0,0)
