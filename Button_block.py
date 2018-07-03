@@ -16,32 +16,42 @@ class Button(Block):
         self.button_c = False
 
     @rh.touch.A.press()
-    def touch_a(channel):
+    def touch_a(self, channel):
         self.button_a = True
         rh.lights.rgb(255, 0, 0)
+        self.notify_signals(Signal({'button_a': True,
+                                   'button_b': False,
+                                   'button_c': False}))
+
 
     @rh.touch.A.release()
-    def release_a(channel):
+    def release_a(self, channel):
         self.button_a = False
         rh.lights.rgb(0, 0, 0)
 
     @rh.touch.B.press()
-    def touch_b(channel):
+    def touch_b(self, channel):
         self.button_b = True
         rh.lights.rgb(0, 255, 0)
+        self.notify_signals(Signal({'button_a': False,
+                                   'button_b': True,
+                                   'button_c': False}))
 
     @rh.touch.B.release()
-    def release_b(channel):
+    def release_b(self, channel):
         self.button_b = False
         rh.lights.rgb(0, 0, 0)
 
     @rh.touch.C.press()
-    def touch_c(channel):
+    def touch_c(self, channel):
         self.button_c = True
         rh.lights.rgb(0, 0, 255)
+        self.notify_signals(Signal({'button_a': False,
+                                   'button_b': False,
+                                   'button_c': True}))
 
     @rh.touch.C.release()
-    def release_c(channel):
+    def release_c(self, channel):
         self.button_c = False
         rh.lights.rgb(0, 0, 0)
  
