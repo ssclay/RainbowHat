@@ -27,7 +27,12 @@ class Button(Block):
     def pressed(self, channel):
         ch = self.CHANNEL_MAP[channel]
         self.notify_signals(Signal({'channel': ch, 'value': True}))
-        rh.lights.green.on()
+        if channel == 0:
+            rh.lights.red.on()
+        if channel == 1:
+            rh.lights.green.on()
+        if channel == 2:
+            rh.lights.blue.on()
 
     def released(self, channel):
         ch = self.CHANNEL_MAP[channel]
