@@ -1,162 +1,166 @@
 {
   "nio/AlphaDisplay": {
     "version": "0.1.0",
-    "description": "",
+    "description": "The AlphaDisplay block will display a character string onto the display of the RainbowHat.",
     "categories": [],
     "properties": {
       "words": {
         "title": "Words to Screen",
         "type": "Type",
-        "description": "",
+        "description": "String, can only display four characters at a time.",
         "default": null
       }
     },
     "inputs": {
       "default": {
-        "description": ""
+        "description": "Any list of signals."
       }
     },
     "outputs": {
       "default": {
-        "description": ""
+        "description": "Signals pass through block unmodified."
       }
     },
     "commands": {}
   },
   "nio/Button": {
     "version": "0.1.0",
-    "description": "",
+    "description": "The Button block will notify a signal at the push of a button on the RainbowHat.",
     "categories": [],
     "properties": {},
     "inputs": {
-      "default": {
+      "none": {
         "description": ""
       }
     },
     "outputs": {
-      "default": {
-        "description": ""
+      "channel": {
+        "description": "The channel of the button that has been pressed or released (A, B, or C)."
+      },
+      "value": { 
+        "description": "True, if the button has been pressed. False, if the button has been released."
+
       }
     },
     "commands": {}
   },
   "nio/Buzzer": {
     "version": "0.1.0",
-    "description": "",
+    "description": "The Buzzer block will play a sound at a specified frequency and duration.",
     "categories": [],
     "properties": {
       "duration": {
         "title": "Note Duration (s)",
         "type": "FloatType",
-        "description": "",
+        "description": "The time in seconds for the note to play.",
         "default": 1
       },
       "frequency": {
         "title": "Note Freuquency (Hz)",
         "type": "FloatType",
-        "description": "",
+        "description": "The frequency in Hz of the note.",
         "default": 261
       }
     },
     "inputs": {
       "default": {
-        "description": ""
+        "description": "Any list of signals."
       }
     },
     "outputs": {
       "default": {
-        "description": ""
+        "description": "Signals pass through block unmodified."
       }
     },
     "commands": {}
   },
   "nio/FloatDisplay": {
     "version": "0.1.0",
-    "description": "",
+    "description": "The FloatDisplay block will display a float onto the display of the RainbowHat.",
     "categories": [],
     "properties": {
       "numbers": {
         "title": "Numbers to Screen",
         "type": "Type",
-        "description": "",
+        "description": "Float, can only display four numbers at a time.",
         "default": null
       }
     },
     "inputs": {
       "default": {
-        "description": ""
+        "description": "Any list of signals."
       }
     },
     "outputs": {
       "default": {
-        "description": ""
+        "description": "Signals pass through block unmodified."
       }
     },
     "commands": {}
   },
   "nio/LedStrip": {
     "version": "0.1.0",
-    "description": "",
+    "description": "The LedStrip block will control the 7 leds of the RainbowHat.",
     "categories": [],
     "properties": {
       "pixelrgb0": {
         "title": "pixel 0 r g b",
         "type": "Type",
-        "description": "",
+        "description": "Red, Green, Blue value to display on pixel 0.",
         "default": "{{(0, 0, 0)}}"
       },
       "pixelrgb1": {
         "title": "pixel 1 r g b",
         "type": "Type",
-        "description": "",
+        "description": "Red, Green, Blue value to display on pixel 1.",
         "default": "{{(0, 0, 0)}}"
       },
       "pixelrgb2": {
         "title": "pixel 2 r g b",
         "type": "Type",
-        "description": "",
+        "description": "Red, Green, Blue value to display on pixel 2.",
         "default": "{{(0, 0, 0)}}"
       },
       "pixelrgb3": {
         "title": "pixel 3 r g b",
         "type": "Type",
-        "description": "",
+        "description": "Red, Green, Blue value to display on pixel 3.",
         "default": "{{(0, 0, 0)}}"
       },
       "pixelrgb4": {
         "title": "pixel 4 r g b",
         "type": "Type",
-        "description": "",
+        "description": "Red, Green, Blue value to display on pixel 4.",
         "default": "{{(0, 0, 0)}}"
       },
       "pixelrgb5": {
         "title": "pixel 5 r g b",
         "type": "Type",
-        "description": "",
+        "description": "Red, Green, Blue value to display on pixel 5.",
         "default": "{{(0, 0, 0)}}"
       },
       "pixelrgb6": {
         "title": "pixel 6 r g b",
         "type": "Type",
-        "description": "",
+        "description": "Red, Green, Blue value to display on pixel 6.",
         "default": "{{(0, 0, 0)}}"
       }
     },
     "inputs": {
       "default": {
-        "description": ""
+        "description": "Any list of signals."
       }
     },
     "outputs": {
       "default": {
-        "description": ""
+        "description": "Signals pass through block unmodified."
       }
     },
     "commands": {}
   },
   "nio/TemperatureSensor": {
     "version": "0.1.0",
-    "description": "",
+    "description": "The TemperatureSensor block will notify a signal containing the temperature and pressure of the RainbowHat.",
     "categories": [],
     "properties": {
       "enrich": {
@@ -171,12 +175,16 @@
     },
     "inputs": {
       "default": {
-        "description": ""
+        "description": "Any list of signals."
       }
     },
     "outputs": {
-      "default": {
-        "description": ""
+      "temp_C": {
+        "description": "The temperature of the RainbowHat in Celsius."
+      },
+      "pressure_Pa":{
+        "description": "The pressure of the RainbowHat in Pascal."
+
       }
     },
     "commands": {}
