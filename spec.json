@@ -1,40 +1,184 @@
 {
-  "namespace/BlockName": {
-    "version": "1.0.0",
-    "description": "Description of the block.",
+  "nio/AlphaDisplay": {
+    "version": "0.1.0",
+    "description": "",
+    "categories": [],
     "properties": {
-      "<property1>": {
-        "description": "Required description of the property"
-      },
-      "<property2>": {
-        "default": "Optional metadata with any key.",
-        "description": "Required description of the property"
+      "words": {
+        "title": "Words to Screen",
+        "type": "Type",
+        "description": "",
+        "default": null
       }
     },
     "inputs": {
-      "<input1 | default>": {
-        "description": "Required description of the input"
-      },
-      "<input2>": {
-        "description": "Required description of the input"
+      "default": {
+        "description": ""
       }
     },
     "outputs": {
-      "<output1 | default>": {
-        "description": "Required description of the output"
-      },
-      "<output2>": {
-        "description": "Required description of the output"
+      "default": {
+        "description": ""
       }
     },
-    "commands": {
-      "<command1>": {
-        "description": "Required description of the command",
-        "type": "Optional type and other metadata with any key."
-      },
-      "<command2>": {
-        "description": "Required description of the command"
+    "commands": {}
+  },
+  "nio/Button": {
+    "version": "0.1.0",
+    "description": "",
+    "categories": [],
+    "properties": {},
+    "inputs": {
+      "default": {
+        "description": ""
       }
-    }
+    },
+    "outputs": {
+      "default": {
+        "description": ""
+      }
+    },
+    "commands": {}
+  },
+  "nio/Buzzer": {
+    "version": "0.1.0",
+    "description": "",
+    "categories": [],
+    "properties": {
+      "duration": {
+        "title": "Note Duration (s)",
+        "type": "FloatType",
+        "description": "",
+        "default": 1
+      },
+      "frequency": {
+        "title": "Note Freuquency (Hz)",
+        "type": "FloatType",
+        "description": "",
+        "default": 261
+      }
+    },
+    "inputs": {
+      "default": {
+        "description": ""
+      }
+    },
+    "outputs": {
+      "default": {
+        "description": ""
+      }
+    },
+    "commands": {}
+  },
+  "nio/FloatDisplay": {
+    "version": "0.1.0",
+    "description": "",
+    "categories": [],
+    "properties": {
+      "numbers": {
+        "title": "Numbers to Screen",
+        "type": "Type",
+        "description": "",
+        "default": null
+      }
+    },
+    "inputs": {
+      "default": {
+        "description": ""
+      }
+    },
+    "outputs": {
+      "default": {
+        "description": ""
+      }
+    },
+    "commands": {}
+  },
+  "nio/LedStrip": {
+    "version": "0.1.0",
+    "description": "",
+    "categories": [],
+    "properties": {
+      "pixelrgb0": {
+        "title": "pixel 0 r g b",
+        "type": "Type",
+        "description": "",
+        "default": "{{(0, 0, 0)}}"
+      },
+      "pixelrgb1": {
+        "title": "pixel 1 r g b",
+        "type": "Type",
+        "description": "",
+        "default": "{{(0, 0, 0)}}"
+      },
+      "pixelrgb2": {
+        "title": "pixel 2 r g b",
+        "type": "Type",
+        "description": "",
+        "default": "{{(0, 0, 0)}}"
+      },
+      "pixelrgb3": {
+        "title": "pixel 3 r g b",
+        "type": "Type",
+        "description": "",
+        "default": "{{(0, 0, 0)}}"
+      },
+      "pixelrgb4": {
+        "title": "pixel 4 r g b",
+        "type": "Type",
+        "description": "",
+        "default": "{{(0, 0, 0)}}"
+      },
+      "pixelrgb5": {
+        "title": "pixel 5 r g b",
+        "type": "Type",
+        "description": "",
+        "default": "{{(0, 0, 0)}}"
+      },
+      "pixelrgb6": {
+        "title": "pixel 6 r g b",
+        "type": "Type",
+        "description": "",
+        "default": "{{(0, 0, 0)}}"
+      }
+    },
+    "inputs": {
+      "default": {
+        "description": ""
+      }
+    },
+    "outputs": {
+      "default": {
+        "description": ""
+      }
+    },
+    "commands": {}
+  },
+  "nio/TemperatureSensor": {
+    "version": "0.1.0",
+    "description": "",
+    "categories": [],
+    "properties": {
+      "enrich": {
+        "title": "Signal Enrichment",
+        "type": "ObjectType",
+        "description": "",
+        "default": {
+          "enrich_field": "",
+          "exclude_existing": true
+        }
+      }
+    },
+    "inputs": {
+      "default": {
+        "description": ""
+      }
+    },
+    "outputs": {
+      "default": {
+        "description": ""
+      }
+    },
+    "commands": {}
   }
 }

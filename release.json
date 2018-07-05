@@ -1,7 +1,32 @@
 {
-  "namespace/BlockName": {
+  "nio/AlphaDisplay": {
     "language": "Python",
-    "version": "0.0.1",
-    "reference": "github.com/<organization>/<repo>@v0.0.1"
+    "url": "git://github.com/ssclay/RainbowHat.git",
+    "version": "0.1.0"
+  },
+  "nio/Button": {
+    "language": "Python",
+    "url": "git://github.com/ssclay/RainbowHat.git",
+    "version": "0.1.0"
+  },
+  "nio/Buzzer": {
+    "language": "Python",
+    "url": "git://github.com/ssclay/RainbowHat.git",
+    "version": "0.1.0"
+  },
+  "nio/FloatDisplay": {
+    "language": "Python",
+    "url": "git://github.com/ssclay/RainbowHat.git",
+    "version": "0.1.0"
+  },
+  "nio/LedStrip": {
+    "language": "Python",
+    "url": "git://github.com/ssclay/RainbowHat.git",
+    "version": "0.1.0"
+  },
+  "nio/TemperatureSensor": {
+    "language": "Python",
+    "url": "git://github.com/ssclay/RainbowHat.git",
+    "version": "0.1.0"
   }
 }
