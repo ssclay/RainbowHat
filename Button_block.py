@@ -37,5 +37,4 @@ class Button(Block):
     def released(self, channel):
         ch = self.CHANNEL_MAP[channel]
         self.notify_signals(Signal({'channel': ch, 'value': False}))
-        rh.lights.rgb(0,0,0)
-
+        rh.lights.rgb(0, 0, 0)

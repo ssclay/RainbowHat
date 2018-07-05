@@ -18,4 +18,3 @@ class TemperatureSensor(EnrichSignals, Block):
             output = {'temp_C': temp, 'pressure_Pa': pressure}
             output_signals = self.get_output_signal(output, signal)
         self.notify_signals(output_signals)
-
