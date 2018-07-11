@@ -11,8 +11,8 @@ class AndroidThingsRGB(TerminatorBlock):
     version = VersionProperty('0.1.0')
 
     red = Property(title='Red', default=False, order=0)
-    blue = Property(title='Blue', default=False, order=1)
-    green = Property(title='Green', default=False, order=2)
+    green = Property(title='Green', default=False, order=1)
+    blue = Property(title='Blue', default=False, order=2)
 
     def _all_off(self, signal):
         prop_array = \
