@@ -12,7 +12,7 @@ class TestTemperatureSensor(NIOBlockTestCase):
     def setUp(self):
         super().setUp()
         sys.modules['rainbowhat'] = MagicMock()
-        from ..TemperatureSensor_block import TemperatureSensor
+        from ..temperature_sensor_block import TemperatureSensor
         global TemperatureSensor
 
     def test_temp(self):

@@ -12,7 +12,7 @@ class TestBuzzer(NIOBlockTestCase):
     def setUp(self):
         super().setUp()
         sys.modules['rainbowhat'] = MagicMock()
-        from ..Buzzer_block import Buzzer
+        from ..buzzer_block import Buzzer
         global Buzzer
 
     def test_process_signals(self):

@@ -7,18 +7,18 @@ from nio.testing.block_test_case import NIOBlockTestCase
 import sys
 
 
-class TestButton(NIOBlockTestCase):
+class TestAndroidThingsButton(NIOBlockTestCase):
 
     def setUp(self):
         super().setUp()
         sys.modules['rainbowhat'] = MagicMock()
-        from ..Button_block import Button
-        global Button
+        from ..android_things_button_block import AndroidThingsButton
+        global AndroidThingsButton
 
-    def test_buttonmash(self):
-        with patch(Button.__module__ + '.rh.touch') as mock_touch:
-            with patch(Button.__module__ + '.rh.light') as mock_light:
-                blk = Button()
+    def test_AndroidThingsButtonmash(self):
+        with patch(AndroidThingsButton.__module__ + '.rh.touch') as mock_touch:
+            with patch(AndroidThingsButton.__module__ + '.rh.light') as mock_light:
+                blk = AndroidThingsButton()
                 self.configure_block(blk, {'incoming': 'pewpew'})
                 blk.start()
                 blk.process_signals([Signal({})])
