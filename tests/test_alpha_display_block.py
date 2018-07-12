@@ -12,7 +12,7 @@ class TestAlphaDisplay(NIOBlockTestCase):
     def setUp(self):
         super().setUp()
         sys.modules['rainbowhat'] = MagicMock()
-        from ..AlphaDisplay_block import AlphaDisplay
+        from ..alpha_display_block import AlphaDisplay
         global AlphaDisplay
 
     def test_string(self):

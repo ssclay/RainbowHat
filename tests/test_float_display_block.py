@@ -12,7 +12,7 @@ class TestFloatDisplay(NIOBlockTestCase):
     def setUp(self):
         super().setUp()
         sys.modules['rainbowhat'] = MagicMock()
-        from ..FloatDisplay_block import FloatDisplay
+        from ..float_display_block import FloatDisplay
         global FloatDisplay
 
     def test_floats(self):

@@ -12,7 +12,7 @@ class TestLedStrip(NIOBlockTestCase):
     def setUp(self):
         super().setUp()
         sys.modules['rainbowhat'] = MagicMock()
-        from ..LedStrip_block import LedStrip
+        from ..led_strip_block import LedStrip
         global LedStrip
 
     color0 = (1, 1, 1)
